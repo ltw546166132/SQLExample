@@ -1,14 +1,19 @@
 package com.sql.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.dao.javabean.Student;
+import com.sql.service.StudentServiceImpl;
 
 /**
  * Servlet implementation class StudentList
+ * 实现查询所有人员信息类
  */
 @WebServlet("/StudentList")
 public class StudentListServlet extends HttpServlet {
@@ -25,7 +30,16 @@ public class StudentListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		try {
+			StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
+			List<Student> findAll = studentServiceImpl.findAll();
+			request.getSession().setAttribute("findAllStudent", findAll);
+			request.getRequestDispatcher("findAllStu.jsp").forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
