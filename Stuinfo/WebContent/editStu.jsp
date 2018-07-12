@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加人员信息</title>
+<title>更新人员信息</title>
 </head>
 <body>
-	<h3>添加信息</h3>
+	<h3>修改信息</h3>
 	<form action="AddStu" method="post">
 	<table border="1" width="600">
 		<tr>

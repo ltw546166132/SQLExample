@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,22 +41,18 @@ public class AddStu extends HttpServlet {
 		String birthday = request.getParameter("birthday");
 		String[] hobbyarray = request.getParameterValues("hobby");
 		String info = request.getParameter("info");
-		StringBuilder hobbyBuilder = new StringBuilder();
-		for(int i=0;i<hobbyarray.length;i++) {
-			String string = hobbyarray[i];
-			hobbyBuilder.append(string);
-		}
-		String hobby = hobbyBuilder.toString();
+		String hobby1 = Arrays.toString(hobbyarray);
+		String hobby2 = hobby1.substring(1, hobby1.length()-1);
 		try {
 			Date datebirthday = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
 			StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
-			Student student = new Student(name, gender, phone, datebirthday, hobby, info);
+			Student student = new Student(name, gender, phone, datebirthday, hobby2, info);
 			studentServiceImpl.insert(student);
 			
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();
 		}finally {			
-			request.getRequestDispatcher("StudentList").forward(request, response);
+			response.sendRedirect("StudentList");
 		}
 	}
 

@@ -26,5 +26,11 @@ public class StudentDaoImpl implements StudentDao{
 		
 	}
 
+	@Override
+	public void dodelete(String sid) throws SQLException {
+		QueryRunner queryrunner = new QueryRunner(JDBCUtil.getDataSource());
+		queryrunner.update("delete from student where sid=?",sid);
+	}
+
 
 }

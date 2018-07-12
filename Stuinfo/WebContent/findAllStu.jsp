@@ -7,9 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>学生信息列表</title>
+<script type="text/javascript">
+	function dodelete(sid) {
+		var con = confirm("是否删除行？");
+        if(con){
+            window.location.href="DoDelete?sid="+sid;
+        }
+	}
+</script>
 </head>
 <body>
-    <table border="1" width="700">
+    <table border="1" width="900">
     	<tr>
     		<td colspan="8">
     			<a href="add.jsp">添加</a>
@@ -34,7 +42,7 @@
             <td><c:out value="${stu.birthday }"></c:out></td>
             <td><c:out value="${stu.hobby }"></c:out></td>
             <td><c:out value="${stu.info }"></c:out></td>
-            <td><a href="#">更新</a>&nbsp<a href="#">删除</a> </td>
+            <td><a href="EditStu?sid=${stu.sid}">更新</a>&nbsp<a href="#" onclick="dodelete(${stu.sid})">删除</a></td>
         </tr>
         </c:forEach>
     </table>

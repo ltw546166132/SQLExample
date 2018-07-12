@@ -20,4 +20,10 @@ public class StudentServiceImpl implements StudentService{
 		studentDaoImpl.insert(stu);
 	}
 
+	@Override
+	public void dodelete(String sid) throws SQLException {
+		StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+		studentDaoImpl.dodelete(sid);
+	}
+
 }
