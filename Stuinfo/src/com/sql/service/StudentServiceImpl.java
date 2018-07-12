@@ -20,4 +20,24 @@ public class StudentServiceImpl implements StudentService{
 		studentDaoImpl.insert(stu);
 	}
 
+	@Override
+	public void updateone(Student stu) throws SQLException {
+		StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+		studentDaoImpl.updateone(stu);
+	}
+
+	@Override
+	public Student findstubysid(String sid) throws SQLException {
+		StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+		Student stu = studentDaoImpl.findstubyid(sid);
+		return stu;
+	}
+
+	@Override
+	public List<Student> findselect(String name, String gender) throws SQLException {
+		StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+		List<Student> stus = studentDaoImpl.findselect(name,gender);
+		return stus;
+	}
+
 }

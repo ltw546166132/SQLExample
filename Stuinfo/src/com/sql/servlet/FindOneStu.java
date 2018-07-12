@@ -2,42 +2,44 @@ package com.sql.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.dao.javabean.Student;
+import com.sql.service.StudentService;
 import com.sql.service.StudentServiceImpl;
 
 /**
- * Servlet implementation class StudentList
- * 实现查询所有人员信息类
+ * Servlet implementation class EditStu
  */
-@WebServlet("/StudentList")
-public class StudentListServlet extends HttpServlet {
+@WebServlet("/FindOneStu")
+public class FindOneStu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentListServlet() {
+    public FindOneStu() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+		String sid = request.getParameter("sid");
+		StudentService studentService = new StudentServiceImpl();
 		try {
-			StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
-			List<Student> findAll = studentServiceImpl.findAll();
-			request.setAttribute("findStudents", findAll);
-			request.getRequestDispatcher("findAllStu.jsp").forward(request, response);
+			Student stu = studentService.findstubysid(sid);
+			request.setAttribute("stu", stu);
+			request.getRequestDispatcher("editstu.jsp").forward(request, response);
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -46,6 +48,7 @@ public class StudentListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

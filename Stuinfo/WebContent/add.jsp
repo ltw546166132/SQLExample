@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,11 +18,11 @@
 		</tr>
 		<tr>
 			<td>性别</td>
-			<td><input type="radio" name="gender" value="男" checked="checked"/>男&nbsp<input type="radio" name="gender" value="女"/>女</td>
+			<td><input type="radio" name="gender" value="男" checked="checked"/>男&nbsp;<input type="radio" name="gender" value="女"/>女</td>
 		</tr>
 		<tr>
 			<td>电话</td>
-			<td><input type="number" name="phone"/></td>
+			<td><input type="number" name="phone" value=""/></td>
 		</tr>
 		<tr>
 			<td>生日</td>
@@ -29,11 +31,11 @@
 		<tr>
 			<td>爱好</td>
 			<td>
-				<input type="checkbox" name="hobby" value="游泳" checked="checked"/>游泳&nbsp
-				<input type="checkbox" name="hobby" value="篮球"/>篮球&nbsp
-				<input type="checkbox" name="hobby" value="足球"/>足球&nbsp
-				<input type="checkbox" name="hobby" value="看书"/>看书&nbsp
-				<input type="checkbox" name="hobby" value="写字"/>写字&nbsp
+				<input type="checkbox" name="hobby" value="游泳" checked="checked"/>游泳&nbsp;
+				<input type="checkbox" name="hobby" value="篮球"/>篮球&nbsp;
+				<input type="checkbox" name="hobby" value="足球"/>足球&nbsp;
+				<input type="checkbox" name="hobby" value="看书"/>看书&nbsp;
+				<input type="checkbox" name="hobby" value="写字"/>写字&nbsp;
 			</td>
 		</tr>
 		<tr>
