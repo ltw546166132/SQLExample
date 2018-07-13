@@ -43,7 +43,7 @@
             <td>简介</td>
             <td>操作</td>
         </tr>
-        <c:forEach items="${requestScope.findStudents}" var="stu">
+        <c:forEach items="${requestScope.pageBean.list}" var="stu">
             <tr align="center">
                 <td><c:out value="${stu.sid }"></c:out></td>
                 <td><c:out value="${stu.sname }"></c:out></td>
@@ -55,6 +55,20 @@
                 <td><a href="FindOneStu?sid=${stu.sid}">更新</a>&nbsp;<a href="#" onclick="dodelete(${stu.sid})">删除</a> </td>
             </tr>
         </c:forEach>
+        <tr>
+        	<td colspan="8">
+        	第${pageBean.currentPage } / ${pageBean.totalPage }&nbsp;&nbsp;
+        	每页显示${pageBean.pageSize }条&nbsp;&nbsp;
+        	总记录数${pageBean.totalSize }&nbsp;&nbsp;
+        	<c:if test="${pageBean.currentPage!=1 }">
+        		<a href="Paging?currentPage=1">首页</a>|<a href="Paging?currentPage=${pageBean.currentPage-1 }">上一页</a>
+        	</c:if>
+        	
+        	<c:if test="${pageBean.currentPage != pageBean.totalSize }">
+        		<a href="Paging?currentPage=${pageBean.currentPage+1 }">下一页</a>|<a href="Paging?currentPage=${pageBean.totalPage }">尾页</a>
+        	</c:if>
+        	</td>
+        </tr>
     </table>
     </form>
 </body>

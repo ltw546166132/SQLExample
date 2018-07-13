@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<td>性别</td>
-			<td><input type="radio" name="gender" value="男" checked="checked"/>男&nbsp<input type="radio" name="gender" value="女"/>女</td>
+			<td><input type="radio" name="gender" value="男" checked="checked"/>男&nbsp;<input type="radio" name="gender" value="女"/>女</td>
 		</tr>
 		<tr>
 			<td>电话</td>
@@ -30,10 +30,10 @@
 			<td>爱好</td>
 			<td>
 				<input type="checkbox" name="hobby" value="游泳" checked="checked"/>游泳&nbsp
-				<input type="checkbox" name="hobby" value="篮球"/>篮球&nbsp
-				<input type="checkbox" name="hobby" value="足球"/>足球&nbsp
-				<input type="checkbox" name="hobby" value="看书"/>看书&nbsp
-				<input type="checkbox" name="hobby" value="写字"/>写字&nbsp
+				<input type="checkbox" name="hobby" value="篮球"/>篮球&nbsp;
+				<input type="checkbox" name="hobby" value="足球"/>足球&nbsp;
+				<input type="checkbox" name="hobby" value="看书"/>看书&nbsp;
+				<input type="checkbox" name="hobby" value="写字"/>写字&nbsp;
 			</td>
 		</tr>
 		<tr>

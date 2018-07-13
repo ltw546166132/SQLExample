@@ -79,6 +79,9 @@ public class StudentDaoImpl implements StudentDao{
 	}
 
 	@Override
+	/**
+	 * 得到总列数
+	 */
 	public int getcount() throws SQLException {
 		QueryRunner queryRunner = new QueryRunner(JDBCUtil.getDataSource());
 		Long count = (Long) queryRunner.query("select count(*) from student", new ScalarHandler());

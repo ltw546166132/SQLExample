@@ -8,6 +8,6 @@
 </head>
 <body>
 	<a href="StudentList">显示所有人员</a><br>
-	<a href="Paging">分页显示人员</a>
+	<a href="Paging?currentPage=1">分页显示人员</a>
 </body>
 </html>
