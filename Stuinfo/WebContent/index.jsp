@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="StudentList">显示所有人员</a><br>
+	<a href="StudentList">显示所有人员</a><br><br>
 	<a href="Paging?currentPage=1">分页显示人员</a>
 </body>
 </html>

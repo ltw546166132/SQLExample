@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,19 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.UserServiceImpl;
+import com.bean.Words;
+import com.service.WordServiceImpl;
 
 /**
- * Servlet implementation class Ajax
+ * Servlet implementation class BaiduSearch
  */
-@WebServlet("/Ajax")
-public class Ajax extends HttpServlet {
+@WebServlet("/BaiduSearch")
+public class BaiduSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Ajax() {
+    public BaiduSearch() {
         super();
     }
 
@@ -30,17 +32,13 @@ public class Ajax extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		String name = request.getParameter("name");
-		UserServiceImpl userServiceImpl = new UserServiceImpl();
+		response.setContentType("text/html; charset=utf-8"); 
+		String parameter = request.getParameter("keyword");
+		WordServiceImpl wordServiceImpl = new WordServiceImpl();
 		try {
-			Boolean count = userServiceImpl.checkname(name);
-			if (count) {
-				response.getWriter().println("1");
-			}else {
-				response.getWriter().println("2");
-			}
-			
+			List<Words> getlist = wordServiceImpl.getlist(parameter);
+			request.setAttribute("list", getlist);
+			request.getRequestDispatcher("listword.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
