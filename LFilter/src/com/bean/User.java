@@ -21,10 +21,8 @@ public class User implements Serializable,HttpSessionActivationListener{
 	}
 	@Override
 	public void sessionWillPassivate(HttpSessionEvent se) {
-		System.out.println("钝化");
 	}
 	@Override
 	public void sessionDidActivate(HttpSessionEvent se) {
-		System.out.println("活化");
 	}
 }
