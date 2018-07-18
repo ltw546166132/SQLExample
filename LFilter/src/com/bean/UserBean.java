@@ -10,6 +10,10 @@ public class UserBean {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "UserBean [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
 	public String getName() {
 		return name;
 	}
