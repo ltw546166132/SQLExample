@@ -20,23 +20,37 @@ import com.service.UserServiceImpl;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public Login() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
-		String auto = request.getParameter("auto");
-		System.out.println(name+".."+password+".."+auto);
+		String name = null;
+		String password = null;
+		String auto = null;;
+		Cookie[] cookies = request.getCookies();
+		if(cookies!=null) {
+			for (Cookie cookie : cookies) {
+				if(cookie.getName()=="username") {
+					name = cookie.getName();
+				}
+			}
+		}else {
+			name = request.getParameter("name");
+			password = request.getParameter("password");
+			auto = request.getParameter("auto");
+			System.out.println(name+".."+password+".."+auto);
+		}
+		
+		
 		UserServiceImpl userServiceImpl = new UserServiceImpl();
 		try {
 			UserBean bean = userServiceImpl.getBean(name, password);
