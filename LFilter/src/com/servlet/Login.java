@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.beanutils.BeanUtils;
-import com.bean.User;
 import com.bean.UserBean;
 import com.service.UserServiceImpl;
 
@@ -37,7 +36,7 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = null;
 		String password = null;
-		String auto = null;;
+		String auto = null;
 		name = request.getParameter("name");
 		password = request.getParameter("password");
 		auto = request.getParameter("auto");
@@ -48,10 +47,8 @@ public class Login extends HttpServlet {
 			BeanUtils.populate(user, parameterMap);
 			System.out.println("bean..."+user.toString());
 		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
  		
@@ -80,7 +77,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

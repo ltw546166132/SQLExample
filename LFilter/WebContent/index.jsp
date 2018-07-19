@@ -8,11 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${not empty userbean }">
+	<c:if test="${not empty sessionScope.userbean }">
 		欢迎您，${userbean.name}
 	</c:if>
-	<c:if test="${empty userbean} }">
-		请先登录
+	<c:if test="${empty sessionScope.userbean} }">
+		请先登录		
 	</c:if>
+	sgvsg
 </body>
 </html>
