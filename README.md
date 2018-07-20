@@ -15,3 +15,13 @@ Connection conn = DriverManger.getConnection("jdbc:mysql://127.0.0.1:3306/testda
 
 乐观锁:要求程序员自己控制
 比如在数据库加一个字段vrsion当做版本来判断防止事务相互影响
+
+## 自定义注解
+<pre><code>
+public @interface MyAnn{
+  public long timeout() default -1;
+  public Class class() default java.util.Date.class;
+}
+</code></pre>
+
+注解的属性支持的类型有:基本数据类型(4类8种),Sting,Class,Annotation(注解类型),枚举类型,以及以上类型的一维数组类型
