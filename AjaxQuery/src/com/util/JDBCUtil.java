@@ -19,7 +19,6 @@ public class JDBCUtil {
 		try {
 			properties.load(JDBCUtil.class.getClassLoader().getResourceAsStream("sqlselect.properties"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
