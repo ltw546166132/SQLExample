@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+    <class name="com.javabean.Customer" table="c_customer">
+    	<!-- 建立类中的属性与表中的主键对应 -->
+        <id name="c_id" column="c_id">
+        	<generator class="native"></generator>
+        </id>
+        <!-- 建立类中的普通的属性和表的字段的对应 -->
+        <property name="c_name" column="c_name"></property>
+        <property name="c_source" column="c_source"></property>
+        <property name="c_industry" column="c_industry"></property>
+        <property name="c_level" column="c_level"></property>
+        <property name="c_phone" column="c_phone"></property>
+        <property name="c_mobile" column="c_mobile"></property>
+    </class>
+</hibernate-mapping>
