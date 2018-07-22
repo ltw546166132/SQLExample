@@ -2,6 +2,11 @@ package com.javabean;
 
 public class Customer {
 	private Long c_id;
+	@Override
+	public String toString() {
+		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
+				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + "]";
+	}
 	private String c_name;
 	private String c_source;
 	private String c_industry;

@@ -17,6 +17,8 @@
    	    <property name="hibernate.format_sql">true</property>
    	    <!-- 数据源C3P0：数据库连接池 -->
 		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<!-- 自动建表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
    	    
    	    <mapping resource="com/javabean/Customer.hbm.xml"/>
    	</session-factory>
