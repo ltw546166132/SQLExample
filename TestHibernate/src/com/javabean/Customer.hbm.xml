@@ -6,6 +6,7 @@
     <class name="com.javabean.Customer" table="c_customer">
     	<!-- 建立类中的属性与表中的主键对应 -->
         <id name="c_id" column="c_id">
+            <!-- 主键生成策略 -->
         	<generator class="native"></generator>
         </id>
         <!-- 建立类中的普通的属性和表的字段的对应 -->
