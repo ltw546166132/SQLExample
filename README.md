@@ -40,3 +40,5 @@ public @interface MyAnn{
   引发两类丢失更新
 
 ## 读问题的解决
+* 设置事务隔离级别
+  
