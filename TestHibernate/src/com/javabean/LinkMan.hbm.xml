@@ -16,6 +16,6 @@
         <property name="l_qq" column="l_qq"></property>
         <property name="l_position" column="l_position"></property>
         <property name="l_memo" column="l_memo"></property>
-        <many-to-one name=""></many-to-one>
+        <many-to-one name="customer" class="com.javabean.Customer" column="l_cust_id"></many-to-one>
     </class>
 </hibernate-mapping>

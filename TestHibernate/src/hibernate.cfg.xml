@@ -25,5 +25,6 @@
 		<property name="hibernate.current_session_context_class">thread</property>
    	    
    	    <mapping resource="com/javabean/Customer.hbm.xml"/>
+   	    <mapping resource="com/javabean/linkMan.hbm.xml"/>
    	</session-factory>
 </hibernate-configuration>

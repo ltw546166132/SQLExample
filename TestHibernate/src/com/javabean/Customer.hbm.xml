@@ -16,5 +16,9 @@
         <property name="c_level" column="c_level"></property>
         <property name="c_phone" column="c_phone"></property>
         <property name="c_mobile" column="c_mobile"></property>
+        <set name="linkmans">
+        	<key column="l_cust_id"></key>
+        	<one-to-many class="com.javabean.LinkMan"/>
+        </set>
     </class>
 </hibernate-mapping>
