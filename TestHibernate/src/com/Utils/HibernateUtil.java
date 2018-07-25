@@ -16,4 +16,8 @@ public class HibernateUtil {
 		//获取Session对象:类似JDBC中的Connection
 		return sessionFactory.openSession();
 	} 
+	
+	public static Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+	}
 }
