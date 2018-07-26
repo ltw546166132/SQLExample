@@ -1,37 +1,27 @@
 package com.javabean;
 
 public class LinkMan {
-	public LinkMan(){};
-	
-	@Override
-	public String toString() {
-		return "LinkMan [l_id=" + l_id + ", l_name=" + l_name + ", l_cust_id=" + l_cust_id + ", l_gender=" + l_gender
-				+ ", l_phone=" + l_phone + ", l_mobile=" + l_mobile + ", l_qq=" + l_qq + ", l_position=" + l_position
-				+ ", l_memo=" + l_memo + "]";
-	}
 	
 	/**
 	 * 通过ORM方式表示：一个联系人只能属于某一个客户
 	 * 放置的是一的一方的对象
 	 */
-	private Customer cusomer;
+	private Customer customer;
 	private Long l_id;
 	private String l_name;
-	private Long l_cust_id;
 	private String l_gender;
 	private String l_phone;
 	private String l_mobile;
+	private String l_email;
 	private String l_qq;
 	private String l_position;
 	private String l_memo;
-	
-	public Customer getCusomer() {
-		return cusomer;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCusomer(Customer cusomer) {
-		this.cusomer = cusomer;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	
 	public Long getL_id() {
 		return l_id;
 	}
@@ -43,12 +33,6 @@ public class LinkMan {
 	}
 	public void setL_name(String l_name) {
 		this.l_name = l_name;
-	}
-	public Long getL_cust_id() {
-		return l_cust_id;
-	}
-	public void setL_cust_id(Long l_cust_id) {
-		this.l_cust_id = l_cust_id;
 	}
 	public String getL_gender() {
 		return l_gender;
@@ -67,6 +51,12 @@ public class LinkMan {
 	}
 	public void setL_mobile(String l_mobile) {
 		this.l_mobile = l_mobile;
+	}
+	public String getL_email() {
+		return l_email;
+	}
+	public void setL_email(String l_email) {
+		this.l_email = l_email;
 	}
 	public String getL_qq() {
 		return l_qq;

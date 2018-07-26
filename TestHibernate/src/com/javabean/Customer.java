@@ -1,15 +1,9 @@
 package com.javabean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Customer {
-	public Customer(){}
-	@Override
-	public String toString() {
-		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
-				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + "]";
-	}
-	
 	private Long c_id;
 	private String c_name;
 	private String c_source;
@@ -17,7 +11,7 @@ public class Customer {
 	private String c_level;
 	private String c_phone; 
 	private String c_mobile;
-	private Set<LinkMan> linkmans;
+	private Set<LinkMan> linkmans = new HashSet<LinkMan>();
 	public Long getC_id() {
 		return c_id;
 	}

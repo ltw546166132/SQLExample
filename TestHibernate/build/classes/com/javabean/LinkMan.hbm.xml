@@ -8,7 +8,6 @@
             <generator class="native"/>
         </id>
         <property name="l_name" column="l_name"></property>
-        <property name="l_cust_id" column="l_cust_id"></property>
         <property name="l_gender" column="l_gender"></property>
         <property name="l_phone" column="l_phone"></property>
         <property name="l_mobile" column="l_mobile"></property>
@@ -16,6 +15,6 @@
         <property name="l_qq" column="l_qq"></property>
         <property name="l_position" column="l_position"></property>
         <property name="l_memo" column="l_memo"></property>
-        <many-to-one name="customer" class="com.javabean.Customer" column="l_cust_id"></many-to-one>
+        <many-to-one name="customer" cascade="save-update" class="com.javabean.Customer" column="l_cust_id"/>
     </class>
 </hibernate-mapping>
