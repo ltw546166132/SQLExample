@@ -26,5 +26,7 @@
    	    
    	    <mapping resource="com/javabean/Customer.hbm.xml"/>
    	    <mapping resource="com/javabean/linkMan.hbm.xml"/>
+   	    <mapping resource="com/javabean/UserBean.hbm.xml"/>
+   	    <mapping resource="com/javabean/Role.hbm.xml"/>
    	</session-factory>
 </hibernate-configuration>

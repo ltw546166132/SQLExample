@@ -7,11 +7,11 @@
         <id name="u_id">
             <generator class="native"></generator>
         </id>
-        <property name="u_name"></property>
-        <property name="u_code"></property>
-        <property name="u_password"></property>
-        <property name="u_state"></property>
-        <set name="roles" table="sys_user_role" cascade="update">
+        <property name="u_name" column="u_name"></property>
+        <property name="u_code" column="u_code"></property>
+        <property name="u_password" column="u_password"></property>
+        <property name="u_state" column="u_state"></property>
+        <set name="roles" table="sys_user_role">
             <key column="user_id"></key>
             <many-to-many class="com.javebean.Role" column="role_id"></many-to-many>
         </set>
