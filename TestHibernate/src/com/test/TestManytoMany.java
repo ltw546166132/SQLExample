@@ -18,7 +18,7 @@ public class TestManytoMany {
 		userBean2.setU_name("user2");
 		
 		Role role1 = new Role();
-		role1.setR_memo("研发部");
+		role1.setR_name("研发部");
 		Role role2 = new Role();
 		role2.setR_name("市场部");
 		Role role3 = new Role();
@@ -36,8 +36,8 @@ public class TestManytoMany {
 		session.save(userBean2);
 		session.save(role1);
 		session.save(role2);
-		session.save(role3);
-				
+		session.save(role3);			
 		transaction.commit();
+		
 	}
 }

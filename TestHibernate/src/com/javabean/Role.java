@@ -1,12 +1,13 @@
 package com.javabean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Role {
 	private Long r_id;
 	private String r_name;
 	private String r_memo;
-	private Set<UserBean> userset;
+	private Set<UserBean> userset = new HashSet<UserBean>();
 	public Long getR_id() {
 		return r_id;
 	}

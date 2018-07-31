@@ -1,5 +1,6 @@
 package com.javabean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class UserBean {
@@ -8,7 +9,7 @@ public class UserBean {
 	private String u_name;
 	private String u_password;
 	private String u_state;
-	private Set<Role> roles;
+	private Set<Role> roles = new HashSet<Role>();
 	public Long getU_id() {
 		return u_id;
 	}

@@ -8,7 +8,7 @@
             <generator class="native"></generator>
         </id>
         <property name="r_name" column="r_name"></property>
-        <property name="u_memo" column="r_memo"></property>
+        <property name="r_memo" column="r_memo"></property>
         <set name="userset" table="sys_user_role" inverse="true">
             <key column="role_id"></key>
             <many-to-many class="com.javabean.UserBean" column="user_id"></many-to-many>
