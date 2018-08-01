@@ -7,6 +7,7 @@ import com.Utils.HibernateUtil;
 import com.javabean.Role;
 import com.javabean.UserBean;
 
+
 public class TestManytoMany {
 	@Test
 	public void testManytomany() {
@@ -34,9 +35,9 @@ public class TestManytoMany {
 		role3.getUserset().add(userBean2);
 		session.save(userBean1);
 		session.save(userBean2);
-		session.save(role1);
-		session.save(role2);
-		session.save(role3);			
+//		session.save(role1);
+//		session.save(role2);
+//		session.save(role3);			
 		transaction.commit();
 		
 	}

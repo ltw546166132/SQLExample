@@ -18,7 +18,7 @@
    	    <!-- 数据源C3P0：数据库连接池 -->
 		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
 		<!-- 自动建表 -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- 设置事务隔离级别 -->
 		<property name="hibernate.connection.isolation">4</property>
 		<!-- 配制当前线程绑定的Session -->

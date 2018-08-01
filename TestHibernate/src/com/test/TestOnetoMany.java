@@ -1,12 +1,8 @@
 package com.test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
-
 import com.Utils.HibernateUtil;
 import com.javabean.Customer;
 import com.javabean.LinkMan;
