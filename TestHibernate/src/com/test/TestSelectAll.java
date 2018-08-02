@@ -41,7 +41,6 @@ public class TestSelectAll {
 		for (Customer customer : list3) {
 			System.out.println(customer);
 		}
-		
 		transaction.commit();
 		session.close();
 	}

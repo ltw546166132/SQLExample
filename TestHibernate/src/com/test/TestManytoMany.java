@@ -39,6 +39,7 @@ public class TestManytoMany {
 //		session.save(role2);
 //		session.save(role3);			
 		transaction.commit();
-		
 	}
+	
+	
 }
