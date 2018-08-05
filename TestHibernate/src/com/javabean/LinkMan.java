@@ -2,6 +2,12 @@ package com.javabean;
 
 public class LinkMan {
 	
+	@Override
+	public String toString() {
+		return "LinkMan [l_id=" + l_id + ", l_name=" + l_name + ", l_gender=" + l_gender + ", l_phone=" + l_phone
+				+ ", l_mobile=" + l_mobile + ", l_email=" + l_email + ", l_qq=" + l_qq + ", l_position=" + l_position
+				+ ", l_memo=" + l_memo + "]";
+	}
 	/**
 	 * 通过ORM方式表示：一个联系人只能属于某一个客户
 	 * 放置的是一的一方的对象

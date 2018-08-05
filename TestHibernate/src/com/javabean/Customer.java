@@ -9,9 +9,21 @@ public class Customer {
 	private String c_source;
 	private String c_industry;
 	private String c_level;
+	@Override
+	public String toString() {
+		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
+				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + "]";
+	}
 	private String c_phone; 
 	private String c_mobile;
 	private Set<LinkMan> linkmans = new HashSet<LinkMan>();
+	
+	
+	public Customer() {}
+	public Customer(String c_name, String c_level) {
+		this.c_name = c_name;
+		this.c_level = c_level;
+	}
 	public Long getC_id() {
 		return c_id;
 	}
