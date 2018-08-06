@@ -54,18 +54,18 @@ public class TestHQL {
 	public void demotouy() {
 		Session session = HibernateUtil.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-		Query query = session.createQuery("select c.c_name from Customer c");
-		List<Object> list = query.list();
-		for (Object obj : list) {
-			System.out.println(obj.toString());
-		}
-		
-		Query query1 = session.createQuery("select c.c_name, c.c_level from Customer c");
-		List<Object[]> list2 = query1.list();
-		for (Object[] objects : list2) {
-			System.out.println(objects[0]);
-			System.out.println(objects[1]);
-		}
+//		Query query = session.createQuery("select c.c_name from Customer c");
+//		List<Object> list = query.list();
+//		for (Object obj : list) {
+//			System.out.println(obj.toString());
+//		}
+//		
+//		Query query1 = session.createQuery("select c.c_name, c.c_level from Customer c");
+//		List<Object[]> list2 = query1.list();
+//		for (Object[] objects : list2) {
+//			System.out.println(objects[0]);
+//			System.out.println(objects[1]);
+//		}
 		
 		List<Customer> list3 = session.createQuery("select new Customer(c_name,c_level) from Customer").list();
 		for (Customer customer : list3) {
@@ -99,7 +99,7 @@ public class TestHQL {
 	public void hqlfenzhu() {
 		Session session = HibernateUtil.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-		List<Object[]> list = session.createQuery("select c_name,count(*) from Customer group by c_name").list();
+		List<Object[]> list = session.createQuery("select c_name,count(*) from Customer group by c_name having count(*)>=2").list();
 		for (Object[] object : list) {
 			System.out.println(Arrays.toString(object));
 		}
