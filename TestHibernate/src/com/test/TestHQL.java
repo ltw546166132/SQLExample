@@ -16,10 +16,10 @@ public class TestHQL {
 //		Session session = HibernateUtil.getCurrentSession();
 //		Transaction transaction = session.beginTransaction();
 //		Customer customer = new Customer();
-//		customer.setC_name("张三");
+//		customer.setC_name("王五");
 //		for(int i=1;i<=10;i++) {
 //			LinkMan linkMan = new LinkMan();
-//			linkMan.setL_name("LinkMan"+i);	
+//			linkMan.setL_name("LinkMan3"+i);	
 //			linkMan.setCustomer(customer);
 //			session.save(linkMan);
 //		}
