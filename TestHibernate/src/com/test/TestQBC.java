@@ -4,6 +4,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -85,6 +86,26 @@ public class TestQBC {
 		criteria.setProjection(Projections.rowCount());
 		Long num = (Long) criteria.uniqueResult();
 		System.out.println(num);
+		transaction.commit();
+	}
+	
+	@Test
+	/**
+	 * QBC离线查询
+	 */
+	public void testlixian() {
+		//Web层创建DetachedCriteria
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
+		detachedCriteria.add(Restrictions.like("c_name", "李%"));
+		
+		//DAO层获取Criteria
+		Session session = HibernateUtil.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		Criteria executableCriteria = detachedCriteria.getExecutableCriteria(session);
+		List<Customer> list = executableCriteria.list();
+		for (Customer customer : list) {
+			System.out.println(customer.toString());
+		}
 		transaction.commit();
 	}
 	
