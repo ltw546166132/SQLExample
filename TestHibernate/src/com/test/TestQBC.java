@@ -1,5 +1,6 @@
 package com.test;
 
+import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -8,6 +9,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.junit.Test;
 import com.Utils.HibernateUtil;
 import com.javabean.Customer;

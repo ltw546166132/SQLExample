@@ -106,4 +106,38 @@ public class TestHQL {
 		transaction.commit();
 	}
 	
+	@Test
+	/**
+	 * HQL多表查询
+	 */
+	public void testduobiao() {
+		Session session = HibernateUtil.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		//SQL: select * from c_customer c inner join linkman l on c.c_id=l.l_cust_id 
+		//HQL内连接: from Customer c inner join c.linkmans
+		//HQL迫切内连接 : from Customer c inner join fetch c.linkmans
+		Query query = session.createQuery("from Customer c inner join c.linkmans");
+		List<Object[]> list = query.list();
+		for (Object[] objects : list) {
+			System.out.println(objects.length);
+			System.out.println(Arrays.toString(objects));
+		}		
+		transaction.commit();
+	}
+	
+	@Test
+	/**
+	 * HQL迫切内连
+	 */
+	public void  testpoqie() {
+		Session session = HibernateUtil.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		Query query = session.createQuery("from Customer c inner join fetch c.linkmans");
+		List<Customer> list = query.list();
+		for (Customer customer : list) {
+			System.out.println(customer.toString());
+		}
+		transaction.commit();
+	}
+	
 }

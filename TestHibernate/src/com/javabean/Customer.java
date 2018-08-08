@@ -4,16 +4,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Customer {
+	@Override
+	public String toString() {
+		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
+				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + ", linkmans=" + linkmans
+				+ "]";
+	}
 	private Long c_id;
 	private String c_name;
 	private String c_source;
 	private String c_industry;
 	private String c_level;
-	@Override
-	public String toString() {
-		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
-				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + "]";
-	}
+
 	private String c_phone; 
 	private String c_mobile;
 	private Set<LinkMan> linkmans = new HashSet<LinkMan>();
