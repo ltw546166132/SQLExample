@@ -132,7 +132,7 @@ public class TestHQL {
 	public void  testpoqie() {
 		Session session = HibernateUtil.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-		Query query = session.createQuery("from Customer c inner join fetch c.linkmans");
+		Query query = session.createQuery("select distinct c from Customer c inner join fetch c.linkmans");
 		List<Customer> list = query.list();
 		for (Customer customer : list) {
 			System.out.println(customer.toString());

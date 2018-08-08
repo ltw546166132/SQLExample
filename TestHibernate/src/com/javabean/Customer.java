@@ -7,8 +7,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [c_id=" + c_id + ", c_name=" + c_name + ", c_source=" + c_source + ", c_industry=" + c_industry
-				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile + ", linkmans=" + linkmans
-				+ "]";
+				+ ", c_level=" + c_level + ", c_phone=" + c_phone + ", c_mobile=" + c_mobile +"]";
 	}
 	private Long c_id;
 	private String c_name;
