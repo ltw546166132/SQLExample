@@ -42,8 +42,7 @@ public class TestHQL {
 		List<Customer> list2 = query.list();
 		for (Customer cus : list2) {
 			System.out.println(cus);
-		}
-		
+		}		
 		transaction.commit();
 	}
 	
@@ -70,8 +69,7 @@ public class TestHQL {
 		List<Customer> list3 = session.createQuery("select new Customer(c_name,c_level) from Customer").list();
 		for (Customer customer : list3) {
 			System.out.println(customer.toString());
-		}
-		
+		}	
 		transaction.commit();
 	}
 	

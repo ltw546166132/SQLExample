@@ -1,7 +1,7 @@
 package com.javabean;
 
 public class LinkMan {
-	
+
 	@Override
 	public String toString() {
 		return "LinkMan [l_id=" + l_id + ", l_name=" + l_name + ", l_gender=" + l_gender + ", l_phone=" + l_phone
