@@ -127,7 +127,7 @@ public class TestHQL {
 	/**
 	 * HQL迫切内连
 	 */
-	public void  testpoqie() {
+	public void testpoqie() {
 		Session session = HibernateUtil.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
 		Query query = session.createQuery("select distinct c from Customer c inner join fetch c.linkmans");
