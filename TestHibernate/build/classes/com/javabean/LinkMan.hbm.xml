@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 <hibernate-mapping>
-    <class name="com.javabean.LinkMan" table="linkman">
+    <class name="com.javabean.LinkMan" table="linkman" lazy="true">
         <id name="l_id" column="l_id">
             <generator class="native"/>
         </id>
@@ -15,6 +15,6 @@
         <property name="l_qq" column="l_qq"></property>
         <property name="l_position" column="l_position"></property>
         <property name="l_memo" column="l_memo"></property>
-        <many-to-one name="customer" cascade="save-update" class="com.javabean.Customer" column="l_cust_id"/>
+        <many-to-one name="customer" cascade="save-update" class="com.javabean.Customer" column="l_cust_id" fetch="join" lazy="proxy"/>
     </class>
 </hibernate-mapping>
