@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<!-- Struts2为了管理Action的配制，通过包进行管理 -->
+	<!-- 配制Struts2的包 -->
+	<package name="strutsdemo1" extends="struts-default" namespace="/">
+	    <global-results>
+	        <result name="success">/jspContent/demoresults.jsp</result>
+	    </global-results>
+	    <action name="strutsdemo1" class="com.struts2.demo1.Struds2demo1"></action>
+	    <action name="strutsdemo2" class="com.struts2.demo1.Struds2demo1" method="servletapi"></action>
+	    <action name="demo1find" class="com.struts2.demo1.Struds2demo1" method="find"></action>
+	    <action name="demo1update" class="com.struts2.demo1.Struds2demo1" method="update"></action>
+	    <action name="tpf_*" class="com.struts2.demo1.ActionDemo2" method="{1}"></action>
+	    <action name="demofengz_*" class="com.struts2.demo1.Struts2fngz" method="{1}"></action>
+	    <action name="demofzmodel_*" class="com.struts2.demo1.FengzModel" method="{1}"></action>
+	</package>
+</struts>

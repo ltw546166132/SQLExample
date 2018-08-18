@@ -9,7 +9,9 @@
 	<package name="teststruts" extends="struts-default" namespace="/">
 	    <action name="hello" class="com.struts2.HelloAction">
 	        
-	    </action>
-	   
+	    </action>   
 	</package>
+	
+	<include file="com/struts2/demo1/struts2demo.xml"/>
+	<include file="com/action/strutscrm.xml"></include>
 </struts>
