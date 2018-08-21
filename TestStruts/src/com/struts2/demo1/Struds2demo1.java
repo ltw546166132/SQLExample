@@ -19,7 +19,7 @@ public class Struds2demo1 extends ActionSupport{
 		ActionContext context = ActionContext.getContext();
 		//调用ActionContext中的方法
 		//类似于Map<String,String[]> request.getParameterMap();
-		Map<String, Object> parameters = context.getParameters();
+		Map<String, Object> parameters = context.getParameters(); 
 		Set<String> keySet = parameters.keySet();
 		Iterator<String> iterator = keySet.iterator();
 		for(;iterator.hasNext();) {
