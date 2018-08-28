@@ -1,8 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 
-    xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    
-    <bean id="userDao" class="com.dao.UserDaoImpl"></bean>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 使用IOC注解开发,配制扫描 -->
+	<context:component-scan base-package="com.javabean"></context:component-scan>
+	
+	<!-- 开启AOP注解 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<!-- 模块开发引入其他spring配置文件 -->
+	<import resource="applicationContext2.xml" />
+	
+	<!-- Spring整合Hibernate -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 引入Hibernate配制文件 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+	
+	<!-- c3p0连接池类 -->
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"></bean> -->
+	
+	<!-- JDBC模版 -->
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<property name="dataSource" ref="dataSource"></property> </bean> -->
+		
+	<bean id="userDao" class="com.dao.UserDaoImpl"></bean>
+	
+	<bean id="customerDao" class="com.dao.CustomerDaoImpl">
+		<property name="sessionFactory" value="#{sessionFactory}"></property>
+	</bean>
+	<bean id="customerService" class="com.service.CustomerServiceImpl">
+		<property name="customerdao" value="#{customerDao}"></property>
+	</bean>
+
+	<!-- 配制Service -->
+	<bean id="AccountService" class="com.service.AccountServiceImpl"></bean>
+	<!-- 配制DAO -->
+	<bean id="AccountDao" class="com.dao.AccountDaoImpl">
+		<property name="sessionFactory" value="#{sessionFactory}"></property>
+	</bean>
+
+	<!-- 配制事务管理器 -->
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 配制事务的增强 -->
+	<tx:advice transaction-manager="transactionManager" id="trans">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut expression="execution(* com.service.AccountServiceImpl.*(..))" id="accountpoint" />
+		<!-- 事务添加到方法 -->
+		<aop:advisor pointcut-ref="accountpoint" advice-ref="trans" />
+	</aop:config>
+
 </beans>

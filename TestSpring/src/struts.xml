@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+    
+	<!-- Struts2为了管理Action的配制，通过包进行管理 -->
+	<!-- 配制Struts2的包 -->
+	<package name="teststruts" extends="struts-default" namespace="/">
+	    <action name="customer_*" class="com.action.CustomerAction" method="{1}">
+	        <result name="saveUI">/jsp/customer/add.jsp</result>
+	    </action>
+	</package>
+	
+</struts>
