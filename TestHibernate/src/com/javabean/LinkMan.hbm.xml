@@ -15,6 +15,9 @@
         <property name="l_qq" column="l_qq"></property>
         <property name="l_position" column="l_position"></property>
         <property name="l_memo" column="l_memo"></property>
+        
+        <!-- l_cust_id作为外键不出现在实体属性中 -->
+        <!-- many-to-one中 name写多的一方对应一的一方的属性名 . column写多的一方中-->
         <many-to-one name="customer" cascade="save-update" class="com.javabean.Customer" column="l_cust_id" fetch="join" lazy="proxy"/>
     </class>
 </hibernate-mapping>
